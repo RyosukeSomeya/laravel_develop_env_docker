@@ -7,7 +7,7 @@ echo 'Check Arguments...'
 if [ "$LARAVEL_VERSION" = "" ]; then
     LARAVEL_VERSION_MSG="latest"
 else
-    LARAVEL_VERSION_MSG=LARAVEL_VERSION
+    LARAVEL_VERSION_MSG=${LARAVEL_VERSION}
 fi
 
 echo "-.-.-.-.-.-.-."
