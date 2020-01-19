@@ -36,7 +36,7 @@ b. コンテナ内:aの実行が終了するとwebサーバーコンテナにア
 # ./setting.sh
 ```
 `setting.sh`では、`/var/www/laravel`ディレクトリでのLaravelのインストールと、
-`/var/www/laravel`ディレクトリとDocumentRootに設定されているディレクトリ間でのシンボリックリンクが作成される。
+`/var/www/laravel`ディレクトリとDocumentRootに設定されているディレクトリ`/var/www/app`間でのシンボリックリンクが作成される。
 <br>
 
 c. ローカル:setting.shが完了後は、ブラウザから`http://localhost`で接続可能。LaravelTOPページが表示される。
