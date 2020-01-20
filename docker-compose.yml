@@ -3,7 +3,7 @@ services:
   web:
     container_name: app_server
     build:
-      context: ./app_server
+      context: ../app_server
       args:
         PROJECT_NAME: ${PROJECT_NAME}
         LARAVEL_VERSION: ${LARAVEL_VERSION}
@@ -18,7 +18,8 @@ services:
 
   db:
     container_name: mysql_server
-    build: ./db_server
+    build:
+      context: ../app_server
     volumes:
       - ./db_server/db_volume:/var/lib/mysql
       - ./db_server/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
