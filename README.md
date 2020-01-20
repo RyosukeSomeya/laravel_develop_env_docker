@@ -22,7 +22,8 @@ laravel_develop_env_docker/
   ┃    ┣━　Dockerfile
   ┃    ┣━　httpd.conf
   ┃    ┗━　php7-module.conf
-  ┣━━ db_server
+  ┃
+  ┣━━ db_server（MySQLサーバー）
   ┃    ┣━ db_volume (dbコンテナデータ永続化ディレクトリ)
   ┃    ┣━　Dockerfile
   ┃    ┗━　mysql.conf
@@ -81,4 +82,15 @@ c. ローカル:setting.shが完了後は、ブラウザから`http://localhost`
 
 **LaravelでのDB接続設定について**
 
-Laravelプロジェクトのルートディレクトリにある.envのDB_HOSTには、servisesで設定している名前を指定(dbなど)。
+Laravelプロジェクトのルートディレクトリにある.envのDB_HOSTには、servisesでDBサーバーに設定している名前を指定。
+
+↓docker-compose.yml
+```
+services:
+  db: <= これを.envのDB_HOSTに指定
+    container_name: db_server
+```
+↓Laravelのルートディレクトリの.envファイル内
+```
+DB_HOST=db
+```
