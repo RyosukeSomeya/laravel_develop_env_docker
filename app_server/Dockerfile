@@ -35,4 +35,3 @@ RUN mkdir -p app/public
 
 # apache起動
 CMD ["/usr/sbin/httpd", "-DFOREGROUND"]
-
