@@ -9,6 +9,8 @@ services:
         LARAVEL_VERSION: ${LARAVEL_VERSION}
     volumes:
       - ./app_server/laravel/:/var/www/laravel
+    depends_on:
+      - db
     ports:
       - "80:80"
     env_file:
@@ -18,7 +20,7 @@ services:
 
   db:
     container_name: mysql_server
-    build: ./app_server
+    build: ./db_server
     volumes:
       - ./db_server/db_volume:/var/lib/mysql
       - ./db_server/mysql.cnf:/etc/mysql/conf.d/mysql.cnf
