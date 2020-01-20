@@ -10,6 +10,11 @@ P: PHP7.3
 
 Laravel => バージョンは任意に対応
 ```
+### ファイル構成
+```
+laravel_develop_env_docker
+
+```
 ## 使用方法
 ### Laravel新規作成時
 **1.Laravelのプロジェクト名とバージョンの指定**
