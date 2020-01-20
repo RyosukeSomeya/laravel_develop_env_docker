@@ -12,7 +12,26 @@ Laravel => バージョンは任意に対応
 ```
 ### ファイル構成
 ```
-laravel_develop_env_docker
+laravel_develop_env_docker/
+  ┃
+  ┣━━ app_server (PHP + Laravel + apache2 サーバー)
+  ┃    ┣━ laravel (Laravelプロジェクトマウントディレクトリ)
+  ┃    ┣━ laravel_setting(コンテナ構築シェルシェルスクリプト)
+  ┃    ┃    ┣━ restart.sh (プロジェクトルートへのシンボリックリンク復旧用スクリプト)
+  ┃    ┃    ┗━ setting.sh (Laravelプロジェクト生成スクリプト)
+  ┃    ┣━　Dockerfile
+  ┃    ┣━　httpd.conf
+  ┃    ┗━　php7-module.conf
+  ┣━━ db_server
+  ┃    ┣━ db_volume (dbコンテナデータ永続化ディレクトリ)
+  ┃    ┣━　Dockerfile
+  ┃    ┗━　mysql.conf
+  ┃
+  ┣━━ .env (Laravelプロジェクト名、バージョン設定)
+  ┣━━ .gitignore
+  ┣━━ app_create.sh (初回コンテナ生成用スクリプト)
+  ┣━━ app_start.sh (コンテナ起動スクリプト)
+  ┗━━ README.md
 
 ```
 ## 使用方法
@@ -53,3 +72,13 @@ c. ローカル:setting.shが完了後は、ブラウザから`http://localhost`
 # ./start.sh
 ```
 上記コマンドで、`docker-compose up`と、サーバー内でプロジェクトのディレクトリとDocumentRoot用ディレクトリ間でシンボリックリンクが再度設定され、ブラウザからの接続が可能になる。
+<br>
+
+### その他
+**.gitignore**
+- 初期は、Laravelプロジェクトマウントディレクトリを除外しているので、開発開始時点で.gitignoreの対象から外す。
+- dbコンテナ生成時に、db_volumeディレクトリがすでに存在している場合、docker-composeのenvironmentの内容は反映されないので注意。ディレクトリを削除後にコンテナを作成すると反映される。
+
+**LaravelでのDB接続設定について**
+
+Laravelプロジェクトのルートディレクトリにある.envのDB_HOSTには、servisesで設定している名前を指定(dbなど)。
