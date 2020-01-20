@@ -33,8 +33,10 @@ laravel_develop_env_docker/
   ┣━━ app_create.sh (初回コンテナ生成用スクリプト)
   ┣━━ app_start.sh (コンテナ起動スクリプト)
   ┗━━ README.md
-
 ```
+※app_server内のlaravelディレクトリと、db_server内のdb_volumeは初回コンテナ作成時に自動で生成されます。
+<br><br>
+
 ## 使用方法
 ### Laravel新規作成時
 **0.リポジトリをクローン**
