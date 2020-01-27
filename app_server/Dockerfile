@@ -18,7 +18,11 @@ COPY ./httpd.conf /etc/apache2/httpd.conf
 RUN apk add php7 php7-pdo_mysql php7-openssl php7-curl php-phar \
     php7-json php7-mbstring php7-opcache php7-pdo_odbc php7-dom \
     php7-simplexml php7-xml php7-pdo_mysql php7-gd php7-pecl-apcu \
+    php7-xdebug php7-pecl-xdebug \
     php7-xmlwriter php7-xmlreader php7-mysqli php7-tokenizer php7-session
+
+COPY php.ini  /etc/php7/conf.d/php.ini
+COPY xdebug.ini  /etc/php7/conf.d/xdebug.ini
 
 # composerインストール
 COPY --from=composer /usr/bin/composer /usr/bin/composer
