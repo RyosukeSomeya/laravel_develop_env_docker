@@ -3,7 +3,7 @@ FROM alpine:3.11.2
 
 ENV TIMEZONE Asia/Tokyo
 
-RUN apk update && apk upgrade
+RUN apk update --no-cache && apk upgrade
 # 基本コマンドインストール
 RUN apk add bash vim curl
 
