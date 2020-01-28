@@ -17,6 +17,8 @@ echo "
         [44m [0m[44m [0m[44m [0m[44m [0m[44m [0m[44m [0m[44m [0m[44m [0m[44m [0m[44m [0m[44m [0m[44m [0m[44m [0m[44m [0m
 
 "
+cd ../
+
 # imageをビルド
 docker-compose build --no-cache
 docker-compose up -d

@@ -17,7 +17,7 @@ echo "
         [41m [0m[41m [0m[41m [0m[41m [0m[41m [0m[41m [0m[41m [0m[41m [0m[41m [0m[41m [0m[41m [0m[41m [0m[41m [0m[41m [0m
 "
 # コンテナ起動
-docker-compose up -d --build
+docker-compose up -d
 
 # アタッチ
 docker exec -it app_server /bin/bash ./restart.sh
