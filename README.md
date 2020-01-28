@@ -27,7 +27,10 @@ laravel_develop_env_docker/
   ┃    ┣━ db_volume (dbコンテナデータ永続化ディレクトリ)
   ┃    ┣━　Dockerfile
   ┃    ┗━　mysql.conf
-  ┃
+  ┣━━ command
+  ┃    ┣━ create_app.sh(コンテナビルド+起動用)
+  ┃    ┣━ start_app.sh (コンテナ起動用)
+  ┃    ┗━ down_app.sh  (コンテナ停止用)
   ┣━━ .env (Laravelプロジェクト名、バージョン設定)
   ┣━━ .gitignore
   ┣━━ app_create.sh (初回コンテナ生成用スクリプト)
